@@ -1,0 +1,21 @@
+--- /usr/src/etc/rc.d/fsck.orig	2010-07-07 13:02:41.765255856 -0400
++++ /usr/src/etc/rc.d/fsck	2010-07-07 13:02:46.286575144 -0400
+@@ -27,7 +27,16 @@
+ 		if checkyesno background_fsck; then
+ 			fsck -F -p
+ 		else
+-			fsck -p
++			if checkyesno force_fsck; then
++				echo "Force fsck enabled"
++				for filesystem in ${force_fsck_list}
++				do
++					echo "Force check $filesystem"
++					fsck -y $filesystem
++				done
++			else
++				fsck -p
++			fi
+ 		fi
+
+ 		case $? in
+
