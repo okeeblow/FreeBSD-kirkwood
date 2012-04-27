@@ -1,5 +1,5 @@
---- /usr/src/etc/rc.d/fsck.orig	2010-07-07 13:02:41.765255856 -0400
-+++ /usr/src/etc/rc.d/fsck	2010-07-07 13:02:46.286575144 -0400
+--- etc/rc.d/fsck.orig	2012-04-06 16:33:48.495815544 -0400
++++ etc/rc.d/fsck	2012-04-06 16:34:18.517814500 -0400
 @@ -27,7 +27,16 @@
  		if checkyesno background_fsck; then
  			fsck -F -p
@@ -16,6 +16,5 @@
 +				fsck -p
 +			fi
  		fi
-
+ 
  		case $? in
-

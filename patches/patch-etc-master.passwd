@@ -1,11 +1,10 @@
---- /usr/src/etc/master.passwd.orig	2010-06-13 22:09:06.000000000 -0400
-+++ /usr/src/etc/master.passwd	2010-07-08 02:27:52.148993197 -0400
+--- etc/master.passwd.orig	2012-04-06 16:33:06.391532838 -0400
++++ etc/master.passwd	2012-04-06 16:33:31.412814261 -0400
 @@ -1,6 +1,6 @@
- # $FreeBSD: src/etc/master.passwd,v 1.40.22.1.4.1 2010/06/14 02:09:06 kensmith Exp $
+ # $FreeBSD: src/etc/master.passwd,v 1.42.2.1.2.1 2011/11/11 04:20:22 kensmith Exp $
  #
 -root::0:0::0:0:Charlie &:/root:/bin/csh
 +root:$1$jr4u13xy$GivPnOZ5kslfsJL4LmLK41:0:0::0:0:Charlie &:/root:/bin/csh
  toor:*:0:0::0:0:Bourne-again Superuser:/root:
  daemon:*:1:1::0:0:Owner of many system processes:/root:/usr/sbin/nologin
  operator:*:2:5::0:0:System &:/:/usr/sbin/nologin
-

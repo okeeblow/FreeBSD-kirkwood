@@ -1,12 +1,7 @@
---- /usr/src/contrib/bind9/lib/isc/arm/include/isc/atomic.h.orig	2010-08-04 02:02:01.194401084 -0400
-+++ /usr/src/contrib/bind9/lib/isc/arm/include/isc/atomic.h	2010-08-04 02:04:53.462379414 -0400
-@@ -49,26 +49,22 @@
- static inline isc_int32_t
- isc_atomic_cmpxchg(isc_int32_t *p, isc_int32_t cmpval, isc_int32_t val)
- {
--	register int done, ras_start;
-+	register int done, ras_start  = 0xffff1004;
-
+--- contrib/bind9/lib/isc/arm/include/isc/atomic.h.orig	2011-11-10 23:20:22.000000000 -0500
++++ contrib/bind9/lib/isc/arm/include/isc/atomic.h	2012-04-06 16:32:13.146816031 -0400
+@@ -53,22 +53,18 @@
+ 
  	__asm __volatile("1:\n"
  	    "adr	%1, 1b\n"
 -	    "mov	%0, #0xe0000004\n"
@@ -30,4 +25,4 @@
 +	    : "+r" (ras_start), "=r" (done)
  	    ,"+r" (p), "+r" (cmpval), "+r" (val) : : "memory");
  	return (done);
-
+ 
